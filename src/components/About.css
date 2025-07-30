@@ -1,0 +1,282 @@
+/* src/components/About.css */
+
+.about-section {
+  /* background-color: #0d0d1b; */
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+/* Reusing section-title from Projects.css for consistency */
+.section-title {
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #00ffff;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px rgba(0, 255, 255, 0.7), 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+.about-content {
+  display: grid;
+  /* Define named grid areas for the layout */
+  grid-template-areas:
+    "about-text-area timeline-area"
+    "skills-area    timeline-area"; /* timeline-area spans both rows */
+  grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+  gap: 60px; /* Space between the columns and rows */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+/* --- Base Animation Styles (Hidden State) --- */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition-delay: 0s;
+}
+
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* --- About Text Section Styling --- */
+.about-text {
+    grid-area: about-text-area; /* Assign to the defined grid area */
+}
+.about-text p {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 1.2em;
+  line-height: 1.7;
+}
+
+/* --- Technical Skills Section Styling --- */
+.technical-skills {
+  grid-area: skills-area; /* Assign to the defined grid area */
+}
+
+.technical-skills h3 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #a0a0ff;
+  text-align: center;
+}
+
+.technical-skills ul {
+  list-style: none;
+  padding: 0;
+}
+
+.technical-skills li {
+  background-color: #2a2a4a;
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.05rem;
+  color: #fff;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.skill-level {
+  background-color: transparent;
+  color: #00ffff;
+  padding: 0;
+  border-radius: 0;
+  font-size: 1.15rem;
+  font-weight: 500;
+  min-width: unset;
+  text-align: right;
+  z-index: 1;
+}
+
+.skill-bar-track {
+  width: 100%;
+  height: 10px;
+  background-color: rgba(0, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffff, #9933ff);
+  width: 0%;
+  transition: width 1.5s ease-out;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* --- Journey Timeline Section Styling --- */
+.journey-timeline {
+  grid-area: timeline-area; /* Assign to the defined grid area, spanning both rows */
+  position: relative;
+  padding-left: 30px;
+}
+
+.journey-timeline h3 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #a0a0ff;
+  text-align: center;
+}
+
+.timeline-items {
+  position: relative;
+}
+
+.timeline-items::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #00ffff, #9933ff);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.timeline-item {
+  background-color: #2a2a4a;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.05);
+  margin-left: 20px;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background-color: #00ffff;
+  border-radius: 50%;
+  position: absolute;
+  left: -28px;
+  top: 25px;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px #00ffff, 0 0 20px rgba(0, 255, 255, 0.5);
+  border: 2px solid #1a1a2e;
+}
+
+.timeline-item h4 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.timeline-item p {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .about-content {
+    /* Revert to single column layout */
+    grid-template-areas: none; /* Remove named areas */
+    grid-template-columns: 1fr; /* Single column */
+    gap: 40px;
+  }
+  .about-text,
+  .technical-skills,
+  .journey-timeline {
+    grid-area: unset; /* Remove grid-area assignments */
+    grid-column: 1 / -1; /* Make them span full width */
+  }
+  .journey-timeline {
+    padding-left: 0;
+  }
+  .timeline-items::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .timeline-dot {
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: -20px;
+  }
+  .timeline-item {
+    margin-left: 0;
+    padding-left: 40px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.8rem;
+  }
+  .about-text p {
+    font-size: 1rem;
+  }
+  .technical-skills h3, .journey-timeline h3 {
+    font-size: 1.6rem;
+  }
+  .technical-skills li {
+    font-size: 1rem;
+    padding: 12px 15px;
+  }
+  .timeline-item h4 {
+    font-size: 1.3rem;
+  }
+  .timeline-item p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .about-text p {
+    font-size: 0.95rem;
+  }
+  .technical-skills li {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+  .skill-level {
+    font-size: 0.8rem;
+  }
+  .timeline-item h4 {
+    font-size: 1.2rem;
+  }
+}

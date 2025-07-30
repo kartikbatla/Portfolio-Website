@@ -1,0 +1,91 @@
+.certifications-section {
+    background-color: #1a1a2e;
+    text-align: center;
+  }
+  
+  .certifications-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+  }
+  
+  .certification-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+  
+  .stat-item {
+    background-color: #2a2a4a;
+    padding: 25px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .stat-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .stat-item h3 {
+    font-size: 3rem;
+    color: #e0a0ff; /* Highlight color for stats */
+    margin-bottom: 10px;
+  }
+  
+  .stat-item p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin: 0;
+  }
+  
+  .certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .certification-item {
+    background-color: #2a2a4a;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .certification-item h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .certification-item p {
+    font-size: 0.95rem;
+    color: #ccc;
+    margin-bottom: 8px;
+  }
+  
+  .btn.tertiary {
+    background-color: #6a5acd; /* Example button color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    margin-top: auto; /* Push button to the bottom */
+  }
+  
+  .btn.tertiary:hover {
+    background-color: #7b68ee;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }

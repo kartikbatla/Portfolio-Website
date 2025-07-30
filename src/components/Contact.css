@@ -1,0 +1,371 @@
+/* src/components/Contact.css */
+
+.contact-section {
+  /* background-color: #0d0d1b;*//* Dark background for the section */
+  text-align: center; /* Centers the main title and subtitle */
+  padding-bottom: 80px; /* Space at the bottom of the section */
+}
+
+/* Reusing section-title structure for consistency across your site's headers */
+.section-title {
+  font-size: 3.5rem;
+  color: #fff; /* Default text color */
+  margin-bottom: 20px; /* Space between title and subtitle */
+  position: relative;
+  display: inline-block; /* Essential for ::after pseudo-element width */
+  padding-bottom: 10px; /* Space for the underline */
+  font-weight: 700;
+}
+
+/* Gradient for "Get In Touch" title (specific to this section) */
+.section-title.contact-title-gradient {
+  background: linear-gradient(90deg, #00ffff, #9933ff); /* Cyan to Purple gradient */
+  -webkit-background-clip: text; /* Apply gradient to text fill */
+  -webkit-text-fill-color: transparent; /* Make text color transparent to show gradient */
+  background-clip: text; /* Standard property for text clipping */
+  color: transparent; /* Standard property fallback for text color */
+}
+
+/* Underline for all section titles (reused from Projects) */
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #00ffff;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px rgba(0, 255, 255, 0.7), 0 0 30px rgba(0, 255, 255, 0.5); /* Glowing effect */
+}
+
+.contact-subtitle {
+  font-size: 1.2rem;
+  color: #ccc; /* Lighter grey for subtitle text */
+  max-width: 700px; /* Limit width for readability */
+  margin: 0 auto 60px auto; /* Center and add more bottom margin */
+  line-height: 1.7; /* Improved readability */
+}
+
+/* --- Two-Column Layout for Contact Content --- */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* Form column slightly wider than info column */
+  gap: 60px; /* Space between the two main columns */
+  max-width: 1200px; /* Max width for the content area */
+  margin: 0 auto; /* Center the content grid */
+  padding: 0 20px; /* Horizontal padding for responsiveness */
+  text-align: left; /* Align content within columns to the left */
+}
+
+/* --- Left Column: Contact Form Styling --- */
+.contact-form-container {
+  background-color: #1a1a2e; /* Darker background for the form container */
+  padding: 40px;
+  border-radius: 15px; /* More rounded corners */
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.1); /* Subtle glowing shadow */
+  border: 1px solid rgba(0, 255, 255, 0.2); /* Subtle cyan border */
+  display: flex; /* Use flexbox to organize contents */
+  flex-direction: column; /* Stack heading and form vertically */
+  align-items: center; /* Center content horizontally within container */
+}
+
+.contact-form-container h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #a0a0ff; /* Sub-heading color */
+  text-align: center; /* Center form heading */
+}
+
+.contact-form {
+  width: 100%; /* Form takes full width of its container */
+  max-width: 500px; /* Limit form width for better design */
+}
+
+.contact-form .form-group {
+  margin-bottom: 25px; /* Space between form groups */
+}
+
+.form-row {
+  display: flex; /* For Name and Email to be side-by-side */
+  gap: 20px; /* Space between Name and Email fields */
+  margin-bottom: 25px;
+}
+
+.form-row .form-group {
+  flex: 1; /* Each form group in the row takes equal space */
+  margin-bottom: 0; /* No bottom margin, handled by form-row */
+}
+
+.form-group label {
+  display: block; /* Label on its own line */
+  margin-bottom: 8px; /* Space below label */
+  font-size: 1.05rem;
+  color: #fff; /* White label text */
+  font-weight: 500;
+}
+
+.input-wrapper {
+  display: flex; /* Use flexbox to align icon and input */
+  align-items: center; /* Vertically center icon and input */
+  background-color: #0d0d1b; /* Even darker background for the input field itself */
+  border-radius: 10px; /* Rounded input fields */
+  padding: 12px 15px; /* Padding inside the wrapper */
+  border: 1px solid rgba(0, 255, 255, 0.3); /* Cyan border */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on focus */
+}
+
+.input-wrapper:focus-within { /* Style when an input/textarea inside is focused */
+  border-color: #00ffff; /* Brighter cyan border on focus */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Glowing shadow on focus */
+}
+
+.input-icon {
+  color: #00ffff; /* Cyan color for icons */
+  font-size: 1.3rem; /* Size of input icons */
+  margin-right: 15px; /* Space between icon and input */
+  min-width: 20px; /* Prevent icon from shrinking */
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+  width: 100%; /* Input/textarea takes remaining width */
+  padding: 5px 0; /* Adjust internal padding as wrapper has padding */
+  border: none; /* Remove default input border */
+  background: transparent; /* Transparent background to show wrapper's background */
+  color: #fff; /* White text for input */
+  font-size: 1.1rem; /* Input font size */
+  outline: none; /* Remove default focus outline */
+}
+
+/* Placeholder text color for inputs and textarea */
+.input-wrapper input::placeholder,
+.input-wrapper textarea::placeholder {
+  color: #999;
+  opacity: 1; /* Ensures consistency across browsers */
+}
+
+/* Specific styling for textarea wrapper for icon alignment */
+.textarea-wrapper {
+  align-items: flex-start; /* Align icon to the top for textarea */
+  padding-top: 15px; /* Adjust padding for textarea's height */
+}
+
+.textarea-icon {
+  margin-top: 5px; /* Push icon slightly down to align better with text */
+}
+
+/* Submit Button Styling */
+.submit-glow-btn {
+  background: linear-gradient(90deg, #00ffff, #9933ff); /* Cyan to Purple gradient */
+  color: #0a0a0a; /* Dark text for contrast */
+  border: none;
+  padding: 15px 40px;
+  border-radius: 30px; /* Highly rounded button */
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.7), /* Stronger glow for button */
+              0 0 30px rgba(0, 255, 255, 0.5);
+  margin-top: 15px; /* Space above button */
+  width: auto; /* Allow button to size based on content */
+  display: inline-flex; /* To align icon and text */
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-glow-btn:hover {
+  background: linear-gradient(90deg, #00e6e6, #8a2be2); /* Slightly shift gradient on hover */
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.9),
+              0 0 40px rgba(0, 255, 255, 0.7);
+  transform: translateY(-3px) scale(1.02); /* Lift and slightly scale */
+}
+
+.submit-glow-btn .btn-icon {
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 1.4rem; /* Size of paper plane icon */
+  vertical-align: middle;
+}
+
+/* --- Right Column: Contact Info & Social Links Styling --- */
+.contact-info-column {
+  display: flex;
+  flex-direction: column; /* Stack contact details and social links vertically */
+  align-items: flex-start; /* Align contents to the left */
+}
+
+.contact-info-column h3 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #a0a0ff;
+  text-align: center; /* Center info headings for aesthetic balance */
+  width: 100%; /* Take full width to center text */
+}
+
+.contact-details {
+  width: 100%;
+  margin-bottom: 40px; /* Space between contact details and social links */
+}
+
+.contact-detail-item {
+  background-color: #1a1a2e; /* Darker background for each detail item */
+  padding: 20px 25px;
+  border-radius: 12px;
+  margin-bottom: 20px; /* Space between detail items */
+  display: flex; /* Flexbox to align icon and text */
+  align-items: center; /* Vertically center icon and text */
+  border: 1px solid rgba(0, 255, 255, 0.2); /* Subtle cyan border */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.05); /* Subtle glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
+}
+
+.contact-detail-item:hover {
+    transform: translateY(-5px); /* Lift slightly on hover */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.15); /* Enhance glow on hover */
+}
+
+.detail-icon {
+  color: #00ffff; /* Cyan color for detail icons */
+  font-size: 1.8rem; /* Larger icons for contact details */
+  margin-right: 20px; /* Space between icon and text */
+  min-width: 30px; /* Ensure icon has space */
+}
+
+.detail-text {
+  flex-grow: 1; /* Allows text to take available space */
+}
+
+.detail-text .detail-label {
+  font-size: 0.9rem;
+  color: #999; /* Lighter color for labels (Email, Phone, Location) */
+  margin-bottom: 5px; /* Space between label and value */
+  font-weight: 400;
+}
+
+.detail-text .detail-value {
+  font-size: 1.1rem;
+  color: #fff; /* White color for actual value (e.g., hello@example.com) */
+  margin-bottom: 0;
+  word-break: break-all; /* Prevent long emails/phones from overflowing */
+}
+
+/* Social Links Styling */
+.social-links-container {
+  width: 100%;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center; /* Center the social icons */
+  gap: 25px; /* Space between icons */
+  margin-top: 20px; /* Space below "Follow Me" heading */
+}
+
+.social-icon-link {
+  color: #fff; /* White default color for icons */
+  font-size: 2.5rem; /* Large icon size */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition on hover */
+  padding: 5px; /* Make clickable area slightly larger */
+}
+
+.social-icon-link:hover {
+  color: #00ffff; /* Cyan on hover */
+  transform: translateY(-5px) scale(1.1); /* Lift and slightly enlarge on hover */
+  text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* --- Responsive Adjustments for Contact Section --- */
+@media (max-width: 992px) {
+  .contact-content {
+    grid-template-columns: 1fr; /* Stack columns vertically on tablets */
+    gap: 40px; /* Reduce gap when stacked */
+  }
+  .contact-form-container,
+  .contact-info-column {
+    max-width: 600px; /* Limit width of stacked columns for better readability */
+    margin: 0 auto; /* Center stacked columns */
+  }
+  /* Align headings and social icons to left when stacked for better flow */
+  .contact-info-column h3 {
+    text-align: left;
+  }
+  .social-icons {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 2.8rem;
+  }
+  .contact-subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  .contact-form-container {
+    padding: 30px 20px;
+  }
+  .contact-form-container h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  .form-row {
+    flex-direction: column; /* Stack Name and Email fields vertically */
+    gap: 0; /* Remove gap when stacked */
+    margin-bottom: 0; /* Managed by individual form-group */
+  }
+  .form-row .form-group {
+    margin-bottom: 20px; /* Add back bottom margin to individual groups */
+  }
+  .input-icon {
+    font-size: 1.2rem;
+    margin-right: 10px;
+  }
+  .input-wrapper {
+    padding: 10px 12px;
+  }
+  .input-wrapper input,
+  .input-wrapper textarea {
+    font-size: 1rem;
+  }
+  .submit-glow-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+  .submit-glow-btn .btn-icon {
+    font-size: 1.2rem;
+  }
+  .contact-detail-item {
+    padding: 15px 20px;
+  }
+  .detail-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+  .detail-text .detail-label {
+    font-size: 0.85rem;
+  }
+  .detail-text .detail-value {
+    font-size: 1rem;
+  }
+  .social-icon-link {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .contact-subtitle {
+    font-size: 0.9rem;
+  }
+  .contact-form-container {
+    padding: 25px 15px;
+  }
+  .social-icon-link {
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,137 @@
+/* src/components/Navbar.css */
+
+.navbar {
+  /* background-color: rgba(0, 0, 0, 0.7); *//*Darker, slightly transparent background */
+  height: 90px; /* Slightly taller for rounded effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  position: fixed; /* Use fixed for sticking to top and full width */
+  top: 20px; /* Offset from top to show rounded corners better */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for horizontal centering */
+  width: calc(100% - 40px); /* Slightly less than full width */
+  max-width: 900px; /* Max width for the navbar container */
+  border-radius: 50px; /* Highly rounded corners for the whole bar */
+  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.2); /* Subtle glow around the bar */
+  z-index: 999;
+  backdrop-filter: blur(5px); /* Add a subtle blur effect behind the navbar */
+  -webkit-backdrop-filter: blur(5px); /* For Safari */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%; /* Take full height of parent navbar */
+  width: 100%;
+  padding: 0 20px; /* Add some internal padding */
+}
+
+.navbar-logo {
+  color: #fff;
+  justify-self: start;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 0 15px; /* Add padding to logo */
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0 10px; /* Space between items */
+}
+
+.nav-links {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px 20px; /* Padding for the clickable area */
+  height: 100%;
+  transition: all 0.3s ease-in-out; /* Smooth transitions for hover/active */
+  border-radius: 30px; /* Ensure links themselves can be rounded */
+  position: relative; /* Needed for pseudo-elements or more complex glows */
+  overflow: hidden; /* Hide overflow from internal glow effects if any */
+}
+
+/* Default hover effect for non-active links */
+.nav-links:not(.active-link):hover {
+  color: #8888ff; /* A different color on hover */
+  /* background-color: rgba(255, 255, 255, 0.1); Optional: subtle background on hover */
+}
+
+
+/* --- Active Link Styling --- */
+.nav-links.active-link {
+  background-color: rgba(0, 255, 255, 0.2); /* Semi-transparent bluish-green background */
+  color: #00ffff; /* Brighter text color for active link */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), /* Inner glow */
+              0 0 30px rgba(0, 255, 255, 0.4), /* Outer glow */
+              0 0 45px rgba(0, 255, 255, 0.2); /* Further spread glow */
+  border: 1px solid rgba(0, 255, 255, 0.8); /* A thin border for definition */
+  font-weight: bold;
+  transform: scale(1.02); /* Slightly larger when active */
+}
+
+/* Remove default hover for active link if it interferes with the active state */
+.nav-links.active-link:hover {
+    color: #00ffff; /* Keep active color on hover */
+    background-color: rgba(0, 255, 255, 0.25); /* Slightly change background on hover */
+    transform: scale(1.02); /* Maintain scale */
+}
+
+
+/* --- Responsive adjustments for smaller screens --- */
+@media (max-width: 768px) {
+  .navbar {
+    height: auto; /* Allow height to adjust */
+    width: 90%; /* Adjust width for mobile */
+    top: 10px;
+    padding: 10px 0;
+  }
+
+  .navbar-container {
+    flex-direction: column; /* Stack logo and menu vertically */
+    height: auto;
+  }
+
+  .navbar-logo {
+    margin-bottom: 10px;
+  }
+
+  .nav-menu {
+    flex-direction: column; /* Stack links vertically */
+    width: 100%;
+  }
+
+  .nav-item {
+    width: 100%;
+    margin: 5px 0; /* Adjust vertical spacing */
+  }
+
+  .nav-links {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0; /* Adjust padding for full width links */
+  }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo {
+        font-size: 1.5rem;
+    }
+    .nav-links {
+        font-size: 0.9rem;
+    }
+}
