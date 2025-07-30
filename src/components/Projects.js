@@ -2,14 +2,13 @@ import React from 'react';
 import ProjectCard from './ProjectCard';
 import './Projects.css';
 
-import netflixImage from 'C:\\Users\\batla\\OneDrive\\Desktop\\Portfolio\\my-portfolio\\src\\images\\download.jpeg';
-import jarvisGif from 'C:\\Users\\batla\\OneDrive\\Desktop\\Portfolio\\my-portfolio\\src\\images\\giphy.gif';
-import enhanceAiImage from 'C:\\Users\\batla\\OneDrive\\Desktop\\Portfolio\\my-portfolio\\src\\images\\ImageLP.jpg'; // Assuming you have this
-import smartParkingImage from 'C:\\Users\\batla\\OneDrive\\Desktop\\Portfolio\\my-portfolio\\src\\images\\logo.png';
+import netflixImage from '/src/images/download.jpeg';
+import jarvisGif from '/src/images/giphy.gif';
+import enhanceAiImage from '/src/images/ImageLP.jpg'; 
+import smartParkingImage from '/src/images/logo.png';
 // import stockManagementImage from '../assets/images/stock-management.jpg';
-import AIImage from 'C:\\Users\\batla\\OneDrive\\Desktop\\Portfolio\\my-portfolio\\src\\images\\Gemini_Generated_Image_kk4updkk4updkk4u.png'; // For the duplicate if you keep it
-import AIImage2 from 'C:\\Users\\batla\\OneDrive\\Desktop\\Portfolio\\my-portfolio\\src\\images\\Gemini_Generated_Image_g0xawrg0xawrg0xa.png'; // For the duplicate if you keep it
-
+import AIImage from '/src/images/Gemini_Generated_Image_kk4updkk4updkk4u.png'; 
+import AIImage2 from '/src/images/Gemini_Generated_Image_g0xawrg0xawrg0xa.png';
 
 // Example project data (you can replace this with your actual projects)
 const projectsData = [
